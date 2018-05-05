@@ -1,5 +1,5 @@
 #include "music_discern.h"
-#include "ui_form.h"
+#include "ui_music_discern.h"
 
 Form::Form(QWidget *parent) :
     QWidget(parent),
