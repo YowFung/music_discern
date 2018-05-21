@@ -1,35 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Application</class>
+ <widget class="QWidget" name="Application">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>640</height>
+    <width>800</width>
+    <height>480</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>智能识谱仪</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QFrame#frame_nav QPushButton {
-	background-color:#bbb;
-	border:0;
+   <string notr="true">QWidget#Application {
+	background: url(:/images/bg.jpg);
+	background-color: #ddd;
 }
-QFrame#frame_nav QPushButton:hover {
-	background-color: #aaa;
+QWidget QPushButton#favicon {
+	background-color: rgba(255,255,255,0.8);
+	border: none;
+	border-right: 1px solid #aaa;
+}
+QWidget QLabel#title {
+	background-color:rgba(180,180,180,0.5);
+	padding: 8px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: &quot;微软雅黑&quot;;
+}
+QWidget QGraphicsView#slogan {
+	background-image: url(:/images/slogan.png);
+	border: none;
+	z-index: 999;
 }</string>
   </property>
-  <widget class="QFrame" name="frame_nav">
+  <widget class="QFrame" name="box_nav">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
-     <width>480</width>
-     <height>48</height>
+     <y>80</y>
+     <width>80</width>
+     <height>400</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#box_nav {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+QFrame#box_nav QPushButton {
+	background-color: rgba(220, 220,220, 0.6);
+	border: none;
+	border-right: 1px solid #aaa
+}
+
+QFrame#box_nav QPushButton:hover {
+	background-color: rgba(180,180,180,0.5)
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -37,64 +72,21 @@ QFrame#frame_nav QPushButton:hover {
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="btn_list">
-    <property name="geometry">
-     <rect>
-      <x>48</x>
-      <y>0</y>
-      <width>48</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>退出</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>48</width>
-      <height>48</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_disc">
+   <widget class="QPushButton" name="nav_close">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>48</width>
-      <height>48</height>
+      <width>80</width>
+      <height>80</height>
      </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>退出</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>images/components/nav-discern.png</normaloff>images/components/nav-discern.png</iconset>
+     <iconset resource="resource.qrc">
+      <normaloff>:/icons/nav/close.svg</normaloff>:/icons/nav/close.svg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -103,299 +95,978 @@ QFrame#frame_nav QPushButton:hover {
      </size>
     </property>
    </widget>
-   <widget class="QLabel" name="label_title">
+   <widget class="QPushButton" name="nav_scan">
     <property name="geometry">
      <rect>
-      <x>144</x>
-      <y>0</y>
-      <width>240</width>
-      <height>48</height>
+      <x>0</x>
+      <y>80</y>
+      <width>80</width>
+      <height>80</height>
      </rect>
     </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/icons/nav/edit.svg</normaloff>:/icons/nav/edit.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nav_play">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>160</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/icons/nav/play.svg</normaloff>:/icons/nav/play.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nav_setting">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>320</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/icons/nav/setting.svg</normaloff>:/icons/nav/setting.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nav_menu">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>240</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/icons/nav/menu.svg</normaloff>:/icons/nav/menu.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="favicon">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>80</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/icons/favicon.svg</normaloff>:/icons/favicon.svg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>64</width>
+     <height>64</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QFrame" name="box_scan">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>80</y>
+     <width>689</width>
+     <height>385</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#box_scan {
+	background-color: rgba(220, 220, 230, 0.85);
+	border: 1px solid #edd;
+}
+QFrame#box_scan .QFrame {
+	background-color: rgba(248, 248, 248, 0.85);
+}
+QFrame#box_scan QFrame#box_scan_fileinfo {
+	border-left: 2px solid #666;
+}
+QFrame#box_scan .QFrame#box_scan_notes {
+	border-top:2px solid #666;
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="box_scan_fileinfo">
+    <property name="geometry">
+     <rect>
+      <x>368</x>
+      <y>16</y>
+      <width>304</width>
+      <height>216</height>
+     </rect>
     </property>
     <property name="font">
      <font>
       <family>微软雅黑</family>
-      <pointsize>14</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #ccc;</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;  啦啦啦啦&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_menu">
-    <property name="geometry">
-     <rect>
-      <x>432</x>
-      <y>0</y>
-      <width>48</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>退出</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>48</width>
-      <height>48</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_exit">
-    <property name="geometry">
-     <rect>
-      <x>384</x>
-      <y>0</y>
-      <width>48</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>48</width>
-      <height>48</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_play">
-    <property name="geometry">
-     <rect>
-      <x>96</x>
-      <y>0</y>
-      <width>48</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>退出</string>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>48</width>
-      <height>48</height>
-     </size>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_disc">
-   <property name="geometry">
-    <rect>
-     <x>496</x>
-     <y>56</y>
-     <width>464</width>
-     <height>576</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame#frame_disc {
-	background-color:white;
-	border:1px solid #ccc;
+     <string notr="true">QFrame#box_scan_fileinfo QLabel#label_scanBox_title {
+	padding: 0 8px;
+	background-color: rgba(170,170,170,0.6);
 }
-
-QFrame#frame_disc QFrame#frame_camera {
-	background-color: #fafafa;
-	border:1px solid #dadada;
+QFrame#box_scan_fileinfo .QLineEdit {
+	border: none;
+	border-bottom: 1px dashed #aaa;
+	background-color: rgba(255,255,255,0);
 }
-
-QFrame#frame_disc QFrame#frame_record {
-	background-color: #fcfcfc;
-	border: 1px solid #dadada;
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QFrame" name="frame_camera">
-    <property name="geometry">
-     <rect>
-      <x>24</x>
-      <y>32</y>
-      <width>416</width>
-      <height>233</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_record">
-    <property name="geometry">
-     <rect>
-      <x>24</x>
-      <y>271</y>
-      <width>416</width>
-      <height>97</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame_panel">
-    <property name="geometry">
-     <rect>
-      <x>24</x>
-      <y>376</y>
-      <width>416</width>
-      <height>176</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_list">
-   <property name="geometry">
-    <rect>
-     <x>8</x>
-     <y>56</y>
-     <width>464</width>
-     <height>576</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame#frame_list {
-	background-color:white;
-	border:1px solid #ccc;
+QFrame#box_scan_fileinfo .QLineEdit:hover {
+	border-bottom: 1px solid #08F;
 }
-
-QFrame#frame_list QFrame {
-	background-color:rgba(0,0,0,0.05);
-	border-bottom:1px dashed #444;
-}
-
-QFrame#frame_list QFrame QPushButton {
-	background-color:rgba(0,0,0,0);
+QFrame#box_scan_fileinfo .QComboBox {
 	border:none;
+	border-bottom: 1px dashed #aaa;
+	background-color: rgba(255,255,255,0);
+}
+QFrame#box_scan_fileinfo .QComboBox:drop-down {
+	width:20px;
+	image: url(:/icons/widgets/down-arrow.svg);
+}
+QFrame#box_scan_fileinfo .QComboBox:hover {
+	border-bottom: 1px solid #08F;
+}
+QFrame#box_scan_fileinfo .QSpinBox {
+	border:none;
+	border-bottom:1px dashed #aaa;
+	background-color: rgba(255,255,255,0);
+}
+QFrame#box_scan_fileinfo .QSpinBox::up-button {
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	width:20px;
+	height:20px;
+	image: url(:/icons/widgets/spinbox-up.svg);
+}
+QFrame#box_scan_fileinfo .QSpinBox::down-button {
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	width:20px;
+	height:20px;
+	image: url(:/icons/widgets/spinbox-down.svg);
+}
+QFrame#box_scan_fileinfo .QSpinBox:hover {
+	border-bottom: 1px solid #08F;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>8</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>曲名：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>40</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>作者：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>72</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>节拍：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>144</x>
+       <y>72</y>
+       <width>36</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>速度：</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_title">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>12</y>
+       <width>232</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>两只老虎</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_author">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>44</y>
+       <width>232</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>不知道</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="combo_beat">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>76</y>
+       <width>56</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>1/4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2/4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3/4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4/4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3/8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>6/8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8/8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8/12</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_velocity">
+     <property name="geometry">
+      <rect>
+       <x>184</x>
+       <y>76</y>
+       <width>73</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>127</number>
+     </property>
+     <property name="value">
+      <number>78</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>16</x>
+       <y>104</y>
+       <width>40</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>音轨：</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="listView_tracks">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>112</y>
+       <width>145</width>
+       <height>89</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QListView#listView_tracks {
+	border:1px solid #888;
+	border-radius:4px;
+}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_fileinfo_remove">
+     <property name="geometry">
+      <rect>
+       <x>208</x>
+       <y>144</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_fileinfo_remove {
+	border: 1px solid #888;
+	border-radius:3px;
+	image:url(:/icons/widgets/fileinfo-remove.png);
 }
 
-QFrame#frame_list QFrame QPushButton:hover {
-	background-color: rgba(0,0,0,0.05)
+QPushButton#btn_fileinfo_remove:hover {
+	border:1px solid #08c;
 }</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QScrollBar" name="verticalScrollBar_list">
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_fileinfo_play">
+     <property name="geometry">
+      <rect>
+       <x>208</x>
+       <y>112</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_fileinfo_play {
+	border: 1px solid #888;
+	border-radius:3px;
+	image:url(:/icons/widgets/fileinfo-play.png);
+}
+
+QPushButton#btn_fileinfo_play:hover {
+	border:1px solid #08c;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_fileinfo_browse">
+     <property name="geometry">
+      <rect>
+       <x>208</x>
+       <y>176</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_fileinfo_browse {
+	border: 1px solid #888;
+	border-radius:3px;
+	image:url(:/icons/widgets/fileinfo-browse.png);
+}
+
+QPushButton#btn_fileinfo_browse:hover {
+	border:1px solid #08c;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="box_scan_notes">
     <property name="geometry">
      <rect>
-      <x>448</x>
-      <y>0</y>
-      <width>16</width>
-      <height>577</height>
+      <x>16</x>
+      <y>232</y>
+      <width>656</width>
+      <height>136</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QScrollBar:vertical
-{
-    width:8px;
-    background:rgba(0,0,0,0%);
-    margin:0px,0px,0px,0px;
-}
-QScrollBar::handle:vertical
-{
-    width:8px;
-    background:rgba(0,0,0,25%);
-    min-height:20;
-}
-QScrollBar::handle:vertical:hover
-{
-    width:8px;
-    background:rgba(0,0,0,50%);
-    min-height:20;
-}
-QScrollBar::add-line:vertical
-{
-	height:0;
-}
-QScrollBar::sub-line:vertical
-{
-    height:0;
-}
-QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical   
-{
-    background:rgba(0,0,0,10%);
+     <string notr="true">QFrame#box_scan_notes QLabel#label_notesBox_title {
+	background-color: rgba(170,170,170,0.6);
 }</string>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_notesBox_title">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>40</y>
+       <width>32</width>
+       <height>112</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>音轨序列</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::AutoText</enum>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>8</number>
+     </property>
+     <property name="indent">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QFrame" name="box_notes_tools">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>656</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame#box_notes_tools {
+	background-color: rgba(120,120,120,0.1);
+	border-bottom:2px solid #ccc
+}
+QFrame#box_notes_tools QPushButton {
+	border:none;
+	background:rgba(0,0,0,0);
+}
+QFrame#box_notes_tools QPushButton:hover {
+	border-radius:50%;
+	border:1px solid #08F;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-quit.svg</normaloff>:/icons/widgets/tools-quit.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>356</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-octave-down.svg</normaloff>:/icons/widgets/tools-octave-down.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>428</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-completed.svg</normaloff>:/icons/widgets/tools-completed.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>164</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-play.svg</normaloff>:/icons/widgets/tools-play.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>132</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-end.svg</normaloff>:/icons/widgets/tools-end.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>36</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-head.svg</normaloff>:/icons/widgets/tools-head.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-pitch-up.svg</normaloff>:/icons/widgets/tools-pitch-up.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>292</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-pitch-down.svg</normaloff>:/icons/widgets/tools-pitch-down.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>324</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-octave-up.svg</normaloff>:/icons/widgets/tools-octave-up.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>388</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-delete.svg</normaloff>:/icons/widgets/tools-delete.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>68</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-left-step.svg</normaloff>:/icons/widgets/tools-left-step.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_13">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-right-step.svg</normaloff>:/icons/widgets/tools-right-step.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_14">
+      <property name="geometry">
+       <rect>
+        <x>196</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-left.svg</normaloff>:/icons/widgets/tools-left.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>228</x>
+        <y>4</y>
+        <width>32</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/icons/widgets/tools-right.svg</normaloff>:/icons/widgets/tools-right.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGraphicsView" name="notes_edit">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>40</y>
+       <width>624</width>
+       <height>112</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QGraphicsView#notes_edit {
+	border:none;
+}</string>
+     </property>
+    </widget>
+    <zorder>label_notesBox_title</zorder>
+    <zorder>notes_edit</zorder>
+    <zorder>box_notes_tools</zorder>
+    <zorder>box_scan_fileinfo</zorder>
    </widget>
-   <widget class="QFrame" name="frame_item1">
+   <widget class="QFrame" name="box_scan_view">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>448</width>
-      <height>48</height>
+      <x>16</x>
+      <y>16</y>
+      <width>352</width>
+      <height>217</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QFrame#box_scan_view QPushButton {
+	border:none;
+	backgraound-color:rgba(0,0,0,0);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -403,381 +1074,213 @@ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_title_item1">
+    <widget class="QGraphicsView" name="camera">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>385</width>
-       <height>49</height>
+       <width>352</width>
+       <height>216</height>
       </rect>
      </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
      <property name="styleSheet">
-      <string notr="true">padding-left:16px;background-color:rgba(0,0,0,0);font-size:18px;font-family:&quot;微软雅黑&quot;;</string>
+      <string notr="true">QGraphicsView#camera {
+	border:none;
+	background: url(:/images/camera.jpg)
+}</string>
      </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啦啦啦啦&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <property name="backgroundBrush">
+      <brush brushstyle="NoBrush">
+       <color alpha="3">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </property>
+     <property name="foregroundBrush">
+      <brush brushstyle="NoBrush">
+       <color alpha="3">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_info_item1">
+    <widget class="QPushButton" name="btn_scan_new">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>0</y>
-       <width>48</width>
-       <height>48</height>
+       <x>8</x>
+       <y>16</y>
+       <width>56</width>
+       <height>56</height>
       </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string>退出</string>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../images/icons/item_info.png</normaloff>../images/icons/item_info.png</iconset>
+      <iconset resource="resource.qrc">
+       <normaloff>:/icons/widgets/add-normal.png</normaloff>
+       <disabledoff>:/icons/widgets/add-disabled.png</disabledoff>
+       <activeoff>:/icons/widgets/add-active.png</activeoff>
+       <selectedoff>:/icons/widgets/add-active.png</selectedoff>:/icons/widgets/add-normal.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>48</width>
-       <height>48</height>
+       <width>50</width>
+       <height>50</height>
       </size>
      </property>
-     <property name="flat">
+     <property name="autoRepeat">
       <bool>false</bool>
      </property>
     </widget>
-   </widget>
-   <widget class="QFrame" name="frame_item1_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>48</y>
-      <width>448</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label_title_item1_2">
+    <widget class="QPushButton" name="btn_scan_close">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>385</width>
-       <height>49</height>
+       <x>8</x>
+       <y>72</y>
+       <width>56</width>
+       <height>56</height>
       </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">padding-left:16px;background-color:rgba(0,0,0,0);font-size:18px;font-family:&quot;微软雅黑&quot;;</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啦啦啦啦&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_info_item1_2">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>0</y>
-       <width>48</width>
-       <height>48</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string>退出</string>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../images/icons/item_info.png</normaloff>../images/icons/item_info.png</iconset>
+      <iconset resource="resource.qrc">
+       <normaloff>:/icons/widgets/close-normal.png</normaloff>
+       <disabledoff>:/icons/widgets/close-disabled.png</disabledoff>
+       <activeoff>:/icons/widgets/close-active.png</activeoff>
+       <selectedoff>:/icons/widgets/close-active.png</selectedoff>:/icons/widgets/close-normal.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>48</width>
-       <height>48</height>
+       <width>50</width>
+       <height>50</height>
       </size>
      </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
     </widget>
-   </widget>
-   <widget class="QFrame" name="frame_item1_3">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>96</y>
-      <width>448</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label_title_item1_3">
+    <widget class="QPushButton" name="btn_scan_capture">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>385</width>
-       <height>49</height>
+       <x>8</x>
+       <y>128</y>
+       <width>56</width>
+       <height>56</height>
       </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">padding-left:16px;background-color:rgba(0,0,0,0);font-size:18px;font-family:&quot;微软雅黑&quot;;</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啦啦啦啦&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_info_item1_3">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>0</y>
-       <width>48</width>
-       <height>48</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string>退出</string>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../images/icons/item_info.png</normaloff>../images/icons/item_info.png</iconset>
+      <iconset resource="resource.qrc">
+       <normaloff>:/icons/widgets/capture-normal.png</normaloff>
+       <disabledoff>:/icons/widgets/capture-disabled.png</disabledoff>
+       <activeoff>:/icons/widgets/capture-active.png</activeoff>
+       <selectedoff>:/icons/widgets/capture-active.png</selectedoff>:/icons/widgets/capture-normal.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>48</width>
-       <height>48</height>
+       <width>50</width>
+       <height>50</height>
       </size>
      </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_item1_4">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>144</y>
-      <width>448</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label_title_item1_4">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>385</width>
-       <height>49</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">padding-left:16px;background-color:rgba(0,0,0,0);font-size:18px;font-family:&quot;微软雅黑&quot;;</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啦啦啦啦&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_info_item1_4">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>0</y>
-       <width>48</width>
-       <height>48</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string>退出</string>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../images/icons/item_info.png</normaloff>../images/icons/item_info.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>48</width>
-       <height>48</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frame_item1_5">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>192</y>
-      <width>448</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label_title_item1_5">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>385</width>
-       <height>49</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">padding-left:16px;background-color:rgba(0,0,0,0);font-size:18px;font-family:&quot;微软雅黑&quot;;</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;啦啦啦啦&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_info_item1_5">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>0</y>
-       <width>48</width>
-       <height>48</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string>退出</string>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../images/icons/item_info.png</normaloff>../images/icons/item_info.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>48</width>
-       <height>48</height>
-      </size>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>288</y>
-      <width>273</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout"/>
-   </widget>
+   <zorder>box_scan_notes</zorder>
+   <zorder>box_scan_view</zorder>
+   <zorder>box_scan_fileinfo</zorder>
   </widget>
+  <widget class="QLabel" name="title">
+   <property name="geometry">
+    <rect>
+     <x>96</x>
+     <y>16</y>
+     <width>689</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>工作区</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="slogan">
+   <property name="geometry">
+    <rect>
+     <x>644</x>
+     <y>0</y>
+     <width>156</width>
+     <height>156</height>
+    </rect>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <property name="backgroundBrush">
+    <brush brushstyle="NoBrush">
+     <color alpha="0">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="foregroundBrush">
+    <brush brushstyle="NoBrush">
+     <color alpha="0">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="interactive">
+    <bool>false</bool>
+   </property>
+   <property name="renderHints">
+    <set>QPainter::TextAntialiasing</set>
+   </property>
+   <property name="dragMode">
+    <enum>QGraphicsView::NoDrag</enum>
+   </property>
+   <property name="cacheMode">
+    <set>QGraphicsView::CacheNone</set>
+   </property>
+   <property name="transformationAnchor">
+    <enum>QGraphicsView::NoAnchor</enum>
+   </property>
+   <property name="viewportUpdateMode">
+    <enum>QGraphicsView::MinimalViewportUpdate</enum>
+   </property>
+  </widget>
+  <zorder>box_nav</zorder>
+  <zorder>favicon</zorder>
+  <zorder>title</zorder>
+  <zorder>box_scan</zorder>
+  <zorder>slogan</zorder>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>nav_close</sender>
+   <signal>clicked()</signal>
+   <receiver>Application</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

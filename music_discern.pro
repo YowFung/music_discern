@@ -34,24 +34,7 @@ FORMS    += \
 
 RC_ICONS = images/favicon.ico
 
-DISTFILES += \
-    images/scores/爱尔兰画眉.jpg \
-    images/components/Widgets/scroll_down.png \
-    images/components/Widgets/scroll_up.png \
-    images/components/btn_delete.png \
-    images/components/btn_edit.png \
-    images/components/item_info.png \
-    images/components/last.png \
-    images/components/music.png \
-    images/components/nav-discern.png \
-    images/components/nav-exit.png \
-    images/components/nav-list.png \
-    images/components/nav-menu.png \
-    images/components/nav-play.png \
-    images/components/next.png \
-    images/components/pause.png \
-    images/components/play.png \
-    images/components/stop.png \
-    images/example/disc_camera_exam.png \
-    images/favicon.png \
-    images/favicon.ico
+DISTFILES +=
+
+RESOURCES += \
+    resource.qrc
