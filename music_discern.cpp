@@ -3,34 +3,101 @@
 
 #include <QString>
 #include <QPainter>
+#include <QGraphicsView>
+#include <QSlider>
+#include <QCursor>
 
+// 构造方法
 Application::Application(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Application)
 {
     ui->setupUi(this);
 
-    // 设置窗口为无边框、置顶显示
+    // 初始化窗体部件
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMaximizeButtonHint | Qt::WindowStaysOnTopHint);
+    ui->app_slogan->setAttribute(Qt::WA_TransparentForMouseEvents,true);                                // 鼠标穿透
 
-    int currentPage = 0;                                       // 当前所在的页面：0=首页, 1=文件编辑, 2=乐谱创作, 3=乐谱预览, 4=音乐演播, 5=文件列表, 6=关于我们
-    int currentMode = 0;                                       // 当前的程序模式：0=待机, 1=识别, 2=播放
+    // 启动时隐藏所有页面
+    hideAllPages();
 
-    QString playingFilename = "";                               // 播放中的文件名
-    short playerStatus = 0;                                    // 播放器状态: 0=未知, 1=正在播放, 2=正在暂停, 3=停止待机
-
-    QString editingFilename = "untitled.mid";                   // 编辑中的文件名
-    bool fileIsSave = true;                                   // 正在编辑的文件是否已保存
 }
 
+// 析构方法
 Application::~Application()
 {
     delete ui;
 }
 
+// 关闭窗口事件
+void Application::closeEvent(QCloseEvent *)
+{
+
+}
+
+// 绘制窗口事件
 void Application::paintEvent(QPaintEvent *)
 {
     // 设置窗口背景图片
     QPainter painter(this);
-    painter.drawPixmap(0, 0, width(), height(), QPixmap(":/images/bg.jpg"));
+    painter.drawPixmap(0, 0, width(), height(), QPixmap(":/app/resource/app/bg.jpg"));
+}
+
+// 修改鼠标指针为默认指针
+void Application::changeCursorToDefault()
+{
+    QSlider *obj = qobject_cast<QSlider *>(sender());
+    obj->setCursor(Qt::ArrowCursor);
+}
+
+// 隐藏所有页面
+void Application::hideAllPages()
+{
+    ui->app_title->setVisible(false);
+    ui->editBox->setVisible(false);
+    ui->playBox->setVisible(false);
+    ui->settingBox->setVisible(false);
+    ui->helpBox->setVisible(false);
+}
+
+// 显示首页
+void Application::on_nav_home_clicked()
+{
+    hideAllPages();
+}
+
+// 显示「MIDI 编辑区」页面
+void Application::on_nav_edit_clicked()
+{
+    hideAllPages();
+    ui->app_title->setText("MIDI 编辑区");
+    ui->app_title->setVisible(true);
+    ui->editBox->setVisible(true);
+}
+
+// 显示「MIDI 演播室」页面
+void Application::on_nav_play_clicked()
+{
+    hideAllPages();
+    ui->app_title->setText("MIDI 演播室");
+    ui->app_title->setVisible(true);
+    ui->playBox->setVisible(true);
+}
+
+// 显示「设置 & 关于」页面
+void Application::on_nav_setting_clicked()
+{
+    hideAllPages();
+    ui->app_title->setText("设置 & 关于");
+    ui->app_title->setVisible(true);
+    ui->settingBox->setVisible(true);
+}
+
+// 显示「帮助中心」页面
+void Application::on_nav_help_clicked()
+{
+    hideAllPages();
+    ui->app_title->setText("帮助中心");
+    ui->app_title->setVisible(true);
+    ui->helpBox->setVisible(true);
 }

@@ -2,7 +2,8 @@
 #define APPLICATION_H
 
 #include <QWidget>
-#include <QPainter>
+#include <QPaintEvent>
+#include <QCloseEvent>
 
 namespace Ui {
 class Application;
@@ -16,22 +17,23 @@ public:
     explicit Application(QWidget *parent = 0);
     ~Application();
 
-    bool saveFile();
-    bool createFile();
-
 protected:
-    void paintEvent(QPaintEvent *event);                    // 重写 paintEvent 事件
-
-    void drawNavWidgets(short select = 0);                    // 绘制导航栏部件
-    void drawFileEditPage(short mode = 0);                    // 绘制文件信息页面
-    void drawDiscernPage();                                   // 绘制音符识别页面
-    void drawPlayerPage();                                    // 绘制播放页面
-    void drawListPage();                                      // 绘制播放列表页面
+    void paintEvent(QPaintEvent *e);                    // 重写 paintEvent 事件
+    void closeEvent(QCloseEvent *e);                    // 重写 closeEvent 事件
 
 private:
     Ui::Application *ui;
 
+    void hideAllPages();                                // 隐藏所有页面
 
+private slots:
+    void on_nav_home_clicked();
+    void on_nav_edit_clicked();
+    void on_nav_play_clicked();
+    void on_nav_setting_clicked();
+    void on_nav_help_clicked();
+
+    void changeCursorToDefault();                       // 设置鼠标指针为默认指针
 };
 
 #endif // FORM_H

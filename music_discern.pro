@@ -32,7 +32,7 @@ HEADERS  += \
 FORMS    += \
     music_discern.ui
 
-RC_ICONS = images/favicon.ico
+RC_ICONS = resource/app/favicon.ico
 
 DISTFILES +=
 
