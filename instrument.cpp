@@ -31,8 +31,9 @@ short Instrument::getInstrumentId(QString instrument_name)
 // 设定为特定乐器
 void Instrument::setInstrument(short instrument_id)
 {
-    currentInstrumentId = instrument_id < 0 ? instruments.count() : instrument_id;
-    currentInstrumentId = instrument_id >= instruments.count() ? 0 : instrument_id;
+    currentInstrumentId = instrument_id;
+    currentInstrumentId = instrument_id < 0 ? instruments.count() - 1 : currentInstrumentId;
+    currentInstrumentId = instrument_id >= instruments.count() ? 0 : currentInstrumentId;
     currentInstrumentName = instruments[currentInstrumentId];
 }
 

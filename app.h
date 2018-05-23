@@ -1,5 +1,5 @@
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#ifndef APP_H
+#define APP_H
 
 #include <QWidget>
 #include <QPainter>
@@ -9,28 +9,27 @@
 #include <QChar>
 #include <QGraphicsView>
 #include <QSlider>
-#include <QCursor>
 #include <QPushButton>
 #include "instrument.h"
 
 namespace Ui {
-class Application;
+class App;
 }
 
-class Application : public QWidget
+class App : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Application(QWidget *parent = 0);
-    ~Application();
+    explicit App(QWidget *parent = 0);
+    ~App();
 
 protected:
     void paintEvent(QPaintEvent *e);                    // 重写 paintEvent 事件
     void closeEvent(QCloseEvent *e);                    // 重写 closeEvent 事件
 
 private:
-    Ui::Application *ui;
+    Ui::App *ui;
 
     // 创建乐器对象实例
     Instrument *preview_instrument = new Instrument();      // 在编辑页面
@@ -47,4 +46,4 @@ private slots:
     void change_instrument();                           // 切换乐器
 };
 
-#endif // FORM_H
+#endif // APP_H

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Application</class>
- <widget class="QWidget" name="Application">
+ <class>App</class>
+ <widget class="QWidget" name="App">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -20,7 +20,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#Application {
+   <string notr="true">QWidget#App {
 	background: url(:/app/resource/app/bg.jpg);
 	background-color: #ddd;
 }
@@ -34,7 +34,6 @@ QLabel#app_title {
 QGraphicsView#app_slogan {
 	background-image: url(:/app/resource/app/slogan.png);
 	border: none;
-	z-index: 999;
 }
 QScrollBar:vertical {
 	background-color: rgba(0,0,0,0.05);
@@ -1339,7 +1338,7 @@ QFrame#toolbarsBox QPushButton:hover {
     <property name="styleSheet">
      <string notr="true">QFrame#cameraBox QPushButton {
 	border:none;
-	backgraound-color:rgba(0,0,0,0);
+	background-color:rgba(0,0,0,0);
 }
 QGraphicsView#cameraView {
 	border:none;
@@ -3934,7 +3933,7 @@ QFrame#helpBox QLabel#label_9 {
   <connection>
    <sender>nav_exit</sender>
    <signal>clicked()</signal>
-   <receiver>Application</receiver>
+   <receiver>App</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">

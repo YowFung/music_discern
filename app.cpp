@@ -1,8 +1,8 @@
-#include "music_discern.h"
-#include "ui_music_discern.h"
+#include "app.h"
+#include "ui_app.h"
 
 // 构造方法
-Application::Application(QWidget *parent) : QWidget(parent), ui(new Ui::Application)
+App::App(QWidget *parent) : QWidget(parent), ui(new Ui::App)
 {
     ui->setupUi(this);
 
@@ -14,19 +14,19 @@ Application::Application(QWidget *parent) : QWidget(parent), ui(new Ui::Applicat
     showHome();
 
     // 关联信号与槽
-    connect(ui->nav_home, &QPushButton::clicked, this, &Application::showHome);
-    connect(ui->set_edit_instruments_down, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->set_edit_instruments_up, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->set_play_instruments_down, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->set_play_instruments_up, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->btn_instruments_down, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->btn_instruments_up, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->con_instruments_down, &QPushButton::clicked, this, &Application::change_instrument);
-    connect(ui->con_instruments_up, &QPushButton::clicked, this, &Application::change_instrument);
+    connect(ui->nav_home, &QPushButton::clicked, this, &App::showHome);
+    connect(ui->set_edit_instruments_down, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->set_edit_instruments_up, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->set_play_instruments_down, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->set_play_instruments_up, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->btn_instruments_down, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->btn_instruments_up, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->con_instruments_down, &QPushButton::clicked, this, &App::change_instrument);
+    connect(ui->con_instruments_up, &QPushButton::clicked, this, &App::change_instrument);
 }
 
 // 析构方法
-Application::~Application()
+App::~App()
 {
     delete preview_instrument;
     delete play_instrument;
@@ -36,13 +36,13 @@ Application::~Application()
 }
 
 // 关闭窗口事件
-void Application::closeEvent(QCloseEvent *)
+void App::closeEvent(QCloseEvent *)
 {
 
 }
 
 // 窗口重绘事件
-void Application::paintEvent(QPaintEvent *)
+void App::paintEvent(QPaintEvent *)
 {
     // 设置窗口背景图片
     QPainter painter(this);
@@ -50,7 +50,7 @@ void Application::paintEvent(QPaintEvent *)
 }
 
 // 显示首页
-void Application::showHome()
+void App::showHome()
 {
     // 隐藏标题和所有页面
     ui->app_title->setVisible(false);
@@ -68,7 +68,7 @@ void Application::showHome()
 }
 
 // 显示「MIDI 编辑区」页面
-void Application::on_nav_edit_clicked()
+void App::on_nav_edit_clicked()
 {
     showHome();
     ui->app_title->setText("MIDI 编辑区");
@@ -78,7 +78,7 @@ void Application::on_nav_edit_clicked()
 }
 
 // 显示「MIDI 演播室」页面
-void Application::on_nav_play_clicked()
+void App::on_nav_play_clicked()
 {
     showHome();
     ui->app_title->setText("MIDI 演播室");
@@ -88,7 +88,7 @@ void Application::on_nav_play_clicked()
 }
 
 // 显示「设置 & 关于」页面
-void Application::on_nav_setting_clicked()
+void App::on_nav_setting_clicked()
 {
     showHome();
     ui->app_title->setText("设置 & 关于");
@@ -98,7 +98,7 @@ void Application::on_nav_setting_clicked()
 }
 
 // 显示「帮助中心」页面
-void Application::on_nav_help_clicked()
+void App::on_nav_help_clicked()
 {
     showHome();
     ui->app_title->setText("帮助中心");
@@ -108,7 +108,7 @@ void Application::on_nav_help_clicked()
 }
 
 // 切换乐器
-void Application::change_instrument()
+void App::change_instrument()
 {
     Instrument *target_instrument = nullptr;
     QPushButton *target_name_btn = nullptr;

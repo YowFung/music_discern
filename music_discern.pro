@@ -24,15 +24,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    music_discern.cpp \
-    instrument.cpp
+    instrument.cpp \
+    app.cpp
 
 HEADERS  += \
-    music_discern.h \
-    instrument.h
+    instrument.h \
+    app.h
 
 FORMS    += \
-    music_discern.ui
+    app.ui
 
 RC_ICONS = resource/app/favicon.ico
 
