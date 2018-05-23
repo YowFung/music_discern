@@ -24,10 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    music_discern.cpp
+    music_discern.cpp \
+    instrument.cpp
 
 HEADERS  += \
-    music_discern.h
+    music_discern.h \
+    instrument.h
 
 FORMS    += \
     music_discern.ui
