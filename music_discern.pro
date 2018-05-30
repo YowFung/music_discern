@@ -24,19 +24,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    instrument.cpp \
-    app.cpp
+    app.cpp \
+    lib/camera/discern.cpp \
+    lib/midifile/instrument.cpp \
+    lib/midifile/midifile.cpp \
+    lib/midifile/midinote.cpp \
+    lib/midifile/miditrack.cpp \
+    lib/player/player.cpp \
+    lib/player/playlist.cpp
+
 
 HEADERS  += \
-    instrument.h \
-    app.h
+    app.h \
+    lib/camera/discern.h \
+    lib/midifile/instrument.h \
+    lib/midifile/midifile.h \
+    lib/midifile/midinote.h \
+    lib/midifile/miditrack.h \
+    lib/player/player.h \
+    lib/player/playlist.h
+
 
 FORMS    += \
     app.ui
 
 RC_ICONS = resource/app/favicon.ico
 
-DISTFILES +=
+DISTFILES += \
+    config/instruments.json \
+    config/playlist.json \
+    config/instruments.txt
 
 RESOURCES += \
     resource.qrc

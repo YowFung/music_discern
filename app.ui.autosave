@@ -2053,6 +2053,9 @@ QFrame#controlBox QPushButton:pressed {
      <property name="styleSheet">
       <string notr="true"/>
      </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
      <property name="maximum">
       <number>127</number>
      </property>
@@ -3703,8 +3706,8 @@ QFrame#helpBox QLabel#label_9 {
   <zorder>helpBox</zorder>
   <zorder>app_slogan</zorder>
   <zorder>editBox</zorder>
-  <zorder>playBox</zorder>
   <zorder>settingBox</zorder>
+  <zorder>playBox</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>
